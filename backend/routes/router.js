@@ -55,4 +55,19 @@ router.get("/getcriminaldata",async(req,res)=>{
     }
 })
 
+
+
+router.get("/getindividualcriminal/:id",async(req,res)=>{
+    try {
+        console.log(req.params);
+        const {id} = req.params;
+        const individualcriminal = await criminals.findById({_id:id});
+        console.log(individualcriminal);
+        res.status(201).json(individualcriminal)
+    } catch (error) {
+        res.status(422).json(error);
+    }
+})
+
+
 export default router;

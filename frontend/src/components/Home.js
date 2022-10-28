@@ -1,8 +1,6 @@
 import React, { useEffect,useState } from "react";
-// import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
-// import CreateIcon from '@mui/icons-material/Create';
-// import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import { NavLink } from 'react-router-dom'
 
 
 const Home = () => {
@@ -65,11 +63,11 @@ const Home = () => {
                                                 <td>{element.inmateid}</td>
                                                 <td>{element.name}</td>
                                                 <td>{element.previousconviction}</td>
-                                                {/* <td className="d-flex justify-content-between">
+                                                <td className="d-flex justify-content-between">
                                                     <NavLink to={`view/${element._id}`}> <button className="btn btn-success"><RemoveRedEyeIcon /></button></NavLink>
-                                                    <NavLink to={`edit/${element._id}`}>  <button className="btn btn-primary"><CreateIcon /></button></NavLink>
-                                                    <button className="btn btn-danger" ><DeleteOutlineIcon /></button>
-                                                </td> */}
+                                                    {/* <NavLink to={`edit/${element._id}`}>  <button className="btn btn-primary"><CreateIcon /></button></NavLink>
+                                                    <button className="btn btn-danger" ><DeleteOutlineIcon /></button> */}
+                                                </td>
                                             </tr>
                                         </>
                                     )
