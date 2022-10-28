@@ -8,7 +8,6 @@ const Navbaar = () => {
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
                 <div className="container-fluid">
                     <a className='navbar-brand' href='#'>PMS</a>
-                    {/* <NavLink className="navbar-brand" to="/">CRUD APP</NavLink> */}
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
@@ -22,9 +21,9 @@ const Navbaar = () => {
                          <NavLink to="/register">
                             <a className="nav-link active" aria-current="page" href="#">Add criminal record</a>
                             </NavLink>
-                             <NavLink to="/edit">
+                             {/* <NavLink to="/edit">
                             <a className="nav-link active" aria-current="page" href="#">Edit criminal record</a>
-                            </NavLink>
+                            </NavLink> */}
 
                            </li>
                           

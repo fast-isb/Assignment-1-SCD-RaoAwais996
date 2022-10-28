@@ -70,4 +70,17 @@ router.get("/getindividualcriminal/:id",async(req,res)=>{
 })
 
 
+router.patch("/updateuser/:id",async(req,res)=>{
+    try {
+        const {id} = req.params;
+        const updatedcriminall = await criminals.findByIdAndUpdate(id,req.body,{
+            new:true
+        });
+        console.log(updatedcriminall);
+        res.status(201).json(updatedcriminall);
+    } catch (error) {
+        res.status(422).json(error);
+    }
+})
+
 export default router;

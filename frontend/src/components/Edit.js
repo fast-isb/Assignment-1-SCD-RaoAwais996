@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { NavLink, useParams,useHistory } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
+import Navbaar from "./Navbaar";
 
 
 const Edit = () => {
 
-
+ 
 const [inpval, setINP] = useState({
     name: "", 
     inmateid:"",
-
     adress: "",
     age: "",
     mobile: "",
@@ -17,7 +17,6 @@ const [inpval, setINP] = useState({
     previousconviction: "",
     crimedescription: ""
 })
-
 const setdata = (e) => {
     console.log(e.target.value);
     const { name, value } = e.target;
@@ -30,7 +29,57 @@ const setdata = (e) => {
 } 
 
 
+const { id } = useParams("");
+console.log(id);
+
+const getdata = async () => {
+    const res = await fetch(`/getindividualcriminal/${id}`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    });
+    const data = await res.json();
+    console.log(data);
+    if (res.status === 422 || !data) {
+        console.log("error ");
+    } else {
+        setINP(data)
+        console.log("Get data");
+    }
+}
+useEffect(() => {
+    getdata();
+}, []);
+
+
+
+const updatecriminal = async(e)=>{
+    e.preventDefault();
+    const {name,inmateid,adress,age,mobile,datearrested,daterelease,previousconviction,crimedescription} = inpval;
+
+    const res2 = await fetch(`/updateuser/${id}`,{
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body:JSON.stringify({
+            name,inmateid,adress,age,mobile,datearrested,daterelease,previousconviction,crimedescription
+        })
+    });
+    const data2 = await res2.json();
+    console.log(data2);
+    if(res2.status === 422 || !data2){
+        alert("Fill the whole data in the form");
+    }else{
+        alert("Data updated");
+    }
+
+}
+
     return (
+        
+
         <div className="container"> 
             <NavLink to="/">
             <button type="submit"  class="btn btn-primary" >Home</button>
@@ -74,7 +123,7 @@ const setdata = (e) => {
                         <textarea name="crimedescription"   value={inpval.crimedescription} onChange={setdata} className="form-control" id="" cols="30" rows="5"></textarea>
                     </div>
 
-                    <button type="submit"  class="btn btn-primary">Lodge</button>
+                    <button type="submit" onClick={updatecriminal} class="btn btn-primary">Update</button>
                 </div>
             </form>
         </div>

@@ -1,6 +1,10 @@
 import React, { useEffect,useState } from "react";
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+
 import { NavLink } from 'react-router-dom'
+import Navbaar from "./Navbaar";
+
+
 
 
 const Home = () => {
@@ -35,7 +39,8 @@ const Home = () => {
     }, [])
 
     return (
-
+<>
+<Navbaar />
 
         <div className="mt-5">
             <div className="container">

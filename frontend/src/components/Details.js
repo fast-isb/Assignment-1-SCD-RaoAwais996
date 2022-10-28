@@ -6,6 +6,10 @@ import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import FunctionsIcon from '@mui/icons-material/Functions';
 import { useParams } from 'react-router-dom';
+import CreateIcon from '@mui/icons-material/Create';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import { NavLink } from 'react-router-dom'
+import Navbaar from "./Navbaar";
 
 
 
@@ -40,13 +44,23 @@ const Details = () => {
     }, [])
 
     return (
+    
+      
         <div className=" center_view container mt-5 max-width margin:auto">
+                 <NavLink to="/">
+            <button type="submit"  className="btn btn-primary" >Home</button>
+
+            </NavLink>
         <h1 style={{ fontWeight: 400 }}>{getcriminaldata.name}</h1>
        <Card sx={{ maxWidth: 600 }}>
            <CardContent>
+           <div className="add_btn">
+                        <NavLink to={`/edit/${getcriminaldata._id}`}>  <button className="btn btn-primary mx-2"><CreateIcon /></button></NavLink>
+                        {/* <button className="btn btn-danger" onClick={() => deleteuser(getuserdata._id)}><DeleteOutlineIcon /></button> */}
+                    </div>
                 <div className="row">
                     <div className="left_view col-1g-6 col-md-6 col-12">
-                        <img src="/profile.svg" style={{ width: 50 }} alt="profile" />
+                        <img src="../src/profile.svg" style={{ width: 50 }} alt="profile" />
                         <h3 className= "mt-3">Name: <span >{getcriminaldata.name}</span></h3>
                         <h3 className= "mt-3">Inmate ID: <span >{getcriminaldata.inmateid}</span></h3>
                         <h3 className= "mt-3">Age: <span >{getcriminaldata.age}</span></h3>
