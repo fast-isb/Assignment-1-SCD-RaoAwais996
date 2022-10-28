@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { NavLink, useHistory } from 'react-router-dom'
+
 // import {createRoot} from 'react-dom/client';
 
 const Register = () => {
@@ -50,14 +51,22 @@ const Register = () => {
         const data = await res.json();
         console.log(data);
 
+      //  const s = res.status
         if (res.status === 404 || !data) {
-            console.log("error ");
-            alert("error");
+            console.log("Complete the form to make a criminal record. ");
+            alert("Complete the form to make a criminal record.");
 
-        } else {
+        }
+        //  else if (s === 405) {
+        //     console.log("This user already exsists ");
+        //     alert("This user already exsists");
+
+        // } 
+        else {
             alert("Record added");
             console.log("data added");
-
+            <NavLink to="/">
+            </NavLink>
         }
     }
 

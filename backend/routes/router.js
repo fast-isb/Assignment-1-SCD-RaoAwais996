@@ -14,24 +14,19 @@ router.post("/register",async(req,res)=>{
         // const datearrested= "18/02/2019"
         // const daterelease="18/02/2022"
         // const previousconviction= "0"
-        // const crimedescription="gun voilence"
+        // const crimedescription="gun shoot out & voilence"
 
     if(!name || !inmateid || !adress || !age || !mobile || !datearrested || !daterelease|| !previousconviction || !crimedescription){
-        res.status(422).json("Complete the form to make a criminal record.");
+        res.status(404).json("Complete the form to make a criminal record.");
     }
 
  
     try {
-        console.log('test 1');
-
         const preuser = await criminals.findOne({inmateid:inmateid});
         console.log(preuser);
-
-        
         if(preuser){
-            res.status(422).json("This user already exsists");
+            res.status(405).json("This user already exsists");
         }else{
-            console.log('test 1');
             const addcriminal = new criminals({
                 name,inmateid,adress,age,mobile,datearrested,daterelease,previousconviction,crimedescription
             }); 
@@ -44,6 +39,19 @@ router.post("/register",async(req,res)=>{
 
     } catch (error) {
         res.status(422).json(error);
+    }
+})
+
+
+
+router.get("/getcriminaldata",async(req,res)=>{
+    try {
+
+        const criminaldata = await criminals.find();
+        res.status(201).json(criminaldata)
+        console.log(criminaldata);
+    } catch (error) {
+        res.status(404).json(error);
     }
 })
 
