@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const Criminalschema = new mongoose.Schema({
+const Criminal = new mongoose.Schema({
     name : {
         type : String,
         required: true
@@ -26,12 +26,12 @@ const Criminalschema = new mongoose.Schema({
         unique: true
     },
     datearrested : {
-        type: Date,
+        type: String,
         required: true,
         unique: false
     },
     daterelease : {
-        type: Date,
+        type: String,
         required: true,
         unique: false
     },
@@ -39,9 +39,14 @@ const Criminalschema = new mongoose.Schema({
         type: Number,
         required: true,
         unique: false
+    },
+    crimedescription : {
+        type: String,
+        required: true,
+        unique: false
     }
 })
 
-const criminals = mongoose.model('Criminals', Criminalschema);
+const criminals = mongoose.model('Criminals', Criminal);
 
 export default criminals;
