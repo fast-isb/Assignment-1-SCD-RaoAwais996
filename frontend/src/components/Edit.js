@@ -80,11 +80,11 @@ const updatecriminal = async(e)=>{
     return (
         
 
-        <div className="container"> 
+        <div data-testid= "editid" className="container"> 
             <NavLink to="/">
             <button type="submit"  class="btn btn-primary" >Home</button>
             </NavLink>
-            <form className="mt-4">
+            <form  data-testid= "formid" className="mt-4">
                 <div className="row">
                     <div class="mb-3 col-lg-6 col-md-6 col-12">
                         <label for="exampleInputEmail1" class="form-label">Name</label>

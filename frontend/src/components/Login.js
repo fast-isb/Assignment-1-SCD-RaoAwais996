@@ -7,7 +7,7 @@ export default class Login extends Component {
   render() {
    
     return (
-      <form className='center_view container mt-5 max-width margin:auto'>
+      <form  data-testid= "loginid" className='center_view container mt-5 max-width margin:auto'>
         <h3>Log In</h3>
 
         <div className="mb-3">
