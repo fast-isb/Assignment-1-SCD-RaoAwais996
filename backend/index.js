@@ -12,7 +12,7 @@ app.use(cors());
 app.use(router);
 
 
-const port = 3001
+const port = process.env.PORT || 3001
 
 const DB = "mongodb+srv://awais:1234@pmscluster.07d5y1y.mongodb.net/?retryWrites=true&w=majority"
 mongoose.connect(DB,{

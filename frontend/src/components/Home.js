@@ -42,12 +42,12 @@ const Home = () => {
 <>
 <Navbaar />
 
-        <div className="mt-5">
+        <div data-testid= "homeid" className="mt-5">
             <div className="container">
                 <div className="add_btn mt-2 mb-2">
                 </div>
 
-                <table class="table">
+                <table data-testid= "tableid" class="table">
                     <thead>
                         <tr className="table-dark">
                         <th scope="col">ID</th>
