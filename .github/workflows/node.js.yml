@@ -15,7 +15,7 @@ jobs:
       CI: false
       
 
-    runs-on: ubuntu-latest
+    runs-on: windows
     
     defaults:
        run:
